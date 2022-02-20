@@ -150,7 +150,7 @@ export default class Nodes extends Vue {
           for(let i = 0 ; i < res.length ; i++)
           {
             this.nodeInst = {
-              nodeName : res[i] + " (level" + (i+1) + ")", 
+              nodeName : res[i] + " (Level " + (i+1) + ")", 
               nodeValue : res[i].toString()
             }
             this.nodeName.push(this.nodeInst)          

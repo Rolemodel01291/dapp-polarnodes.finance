@@ -18,6 +18,10 @@
     </div>
     <div v-if="checkLevelUp" class="flex flex-col align-baseline"> 
       <span class="text-[16px] text-[#00C6ED] ml-[40px] mr-[16px] mt-[1px]">Select node to exchange:</span>
+      <span class="text-[16px] text-[#FF0000] ml-[40px] mr-[16px] mt-[7px]">Attention: please count the number of nodes you want to exchange.<br>
+If you select more than the price of the target node, you will lose the excess nodes.<br>
+Make sure that the total amount of nodes you exchange corresponds to the price of the target node.<br>
+Be careful.</span>
       <div class="w-[70%]">
         <v-select
           :items="list"

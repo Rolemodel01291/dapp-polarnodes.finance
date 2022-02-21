@@ -112,7 +112,7 @@ Be careful.</span>
         <div class="flex mt-[3px]">
           <span class="text-[#00C6ED] text-[12px]">Yield</span>
           <span class="text-[#00C6ED] text-[12px] mx-[4px]">=</span>
-          <span class="text-[12px] text-white">{{polarPerDay}}$POLAR / Day</span>
+          <span class="text-[12px] text-white">{{polarPerDay}}$POLAR / Claim (4h)</span>
         </div>
         <div class="flex mt-[3px]">
           <span class="text-[#00C6ED] text-[12px]">Max slots</span>

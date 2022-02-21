@@ -250,6 +250,31 @@
             Creation with pending limit reached for user
           </v-alert>
 
+
+          <v-alert
+            class="mx-5 mb-0 h-[64px]"
+            type="info"
+            color="red"
+            :value="alertLevelUpReached"
+            dismissible
+            position="relative"
+            transition="scale-transition"
+          >
+            Level up limit reached for user
+          </v-alert>
+
+          <v-alert
+            class="mx-5 mb-0 h-[64px]"
+            type="info"
+            color="red"
+            :value="alertNoOneLevelup"
+            dismissible
+            position="relative"
+            transition="scale-transition"
+          >
+            No one can level up this type of node
+          </v-alert>
+
           <v-alert
             class="mx-5 mb-0 h-[64px]"
             type="info"
@@ -346,7 +371,6 @@
 <script lang="ts">
 import { ethers } from "ethers";
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import AlertComponents from '~/components/AlertComponents.vue'
 import LeftSideBar from '~/components/LeftSideBar.vue'
 
 declare var window: any
@@ -385,6 +409,8 @@ export default class Defalut extends Vue {
   public acceptMetamask = false
   public alertMaxReached = false
   public alertUserMaxReached = false
+  public alertLevelUpReached = false
+  public alertNoOneLevelup = false
 
   created() {    
     (this.$root.$refs.alert as Defalut) = this
@@ -515,6 +541,18 @@ export default class Defalut extends Vue {
     this.alertUserMaxReached = true;
     await this.sleep(3000);
     this.alertUserMaxReached = false;    
+  }
+
+  public async MaxLimitLevelUp() : Promise<void> {    
+    this.alertLevelUpReached = true;
+    await this.sleep(3000);
+    this.alertLevelUpReached = false;    
+  }
+
+  public async NoOneLevelUp() : Promise<void> {    
+    this.alertNoOneLevelup = true;
+    await this.sleep(3000);
+    this.alertNoOneLevelup = false;    
   }
 
   public async NoOwner() : Promise<void> {    

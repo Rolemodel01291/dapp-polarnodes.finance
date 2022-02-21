@@ -251,11 +251,11 @@ export default class CreateNode extends Vue {
       if(err.data)
       {
         if (err.data.message.indexOf("No one can level up this type of node") >= 0) {
-          (this.$root.$refs.alert as Defalut).MaxReached();
+          (this.$root.$refs.alert as Defalut).NoOneLevelUp();
           return;
         }
         if (err.data.message.indexOf("Level up limit reached for user") >= 0) {
-          (this.$root.$refs.alert as Defalut).UserMaxReached();
+          (this.$root.$refs.alert as Defalut).MaxLimitLevelUp();
           return;
         }
         if (err.data.message.indexOf("target doesnt exist") >= 0) {

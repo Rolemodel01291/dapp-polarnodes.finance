@@ -188,10 +188,10 @@ export default class IndexVue extends Vue {
       })
       console.log(nodeName,"NodeName")
       for(let i = 0 ; i < nodeSize ; i++)
-          tempNodeReward.push(pnode.getNodeTypePrice(nodeName[i]))
+          tempNodeReward.push(pnode.getNodeTypeAll(nodeName[i]));
       await Promise.all(tempNodeReward).then((res) => {
         for(let index in res)
-          perNodeReward[index] = ethers.utils.formatEther(res[index]._hex)
+          perNodeReward[index] = ethers.utils.formatEther(res[index][2]._hex)
       })
       console.log(perNodeReward,"perNodeReward")
 

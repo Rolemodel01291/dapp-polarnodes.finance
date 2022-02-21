@@ -250,6 +250,14 @@ export default class CreateNode extends Vue {
     {
       if(err.data)
       {
+        if (err.data.message.indexOf("No one can level up this type of node") >= 0) {
+          (this.$root.$refs.alert as Defalut).MaxReached();
+          return;
+        }
+        if (err.data.message.indexOf("Level up limit reached for user") >= 0) {
+          (this.$root.$refs.alert as Defalut).UserMaxReached();
+          return;
+        }
         if (err.data.message.indexOf("target doesnt exist") >= 0) {
           (this.$root.$refs.alert as Defalut).NoTarget();
           return;
@@ -346,6 +354,14 @@ export default class CreateNode extends Vue {
         if(err.data){
           if (err.data.message.indexOf("User denied transaction signature") >= 0) {
             (this.$root.$refs.alert as Defalut).MustSign();
+            return;
+          }
+          if (err.data.message.indexOf("Global limit reached") >= 0) {
+            (this.$root.$refs.alert as Defalut).MaxReached();
+            return;
+          }
+          if (err.data.message.indexOf("Creation with pending limit reached for user") >= 0) {
+            (this.$root.$refs.alert as Defalut).UserMaxReached();
             return;
           }
           if (err.data.message.indexOf("Balance too low for creation") >= 0) {

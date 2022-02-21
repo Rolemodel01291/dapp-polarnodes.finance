@@ -230,6 +230,30 @@
             class="mx-5 mb-0 h-[64px]"
             type="info"
             color="red"
+            :value="alertMaxReached"
+            dismissible
+            position="relative"
+            transition="scale-transition"
+          >
+            Global limit reached
+          </v-alert>
+
+          <v-alert
+            class="mx-5 mb-0 h-[64px]"
+            type="info"
+            color="red"
+            :value="alertUserMaxReached"
+            dismissible
+            position="relative"
+            transition="scale-transition"
+          >
+            Creation with pending limit reached for user
+          </v-alert>
+
+          <v-alert
+            class="mx-5 mb-0 h-[64px]"
+            type="info"
+            color="red"
             :value="alertNoTarget"
             dismissible
             position="relative"
@@ -359,6 +383,8 @@ export default class Defalut extends Vue {
   public alertTooManyRequest = false
   public noProvider = false
   public acceptMetamask = false
+  public alertMaxReached = false
+  public alertUserMaxReached = false
 
   created() {    
     (this.$root.$refs.alert as Defalut) = this
@@ -477,6 +503,18 @@ export default class Defalut extends Vue {
     this.alertWalletConnectOk = true;
     await this.sleep(3000);
     this.alertWalletConnectOk = false;    
+  }
+
+  public async MaxReached() : Promise<void> {    
+    this.alertMaxReached = true;
+    await this.sleep(3000);
+    this.alertMaxReached = false;    
+  }
+
+  public async UserMaxReached() : Promise<void> {    
+    this.alertUserMaxReached = true;
+    await this.sleep(3000);
+    this.alertUserMaxReached = false;    
   }
 
   public async NoOwner() : Promise<void> {    
